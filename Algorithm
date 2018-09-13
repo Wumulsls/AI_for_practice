@@ -50,7 +50,7 @@
         u.f = time
 
 
-#A* Algorithm
+#A*  Algorithm
 Using a method to verify which one is the shortest way.
 f(n) = g(n) + h(n)
 g(n) is the distance we have got here,and h(n) is the guessing method we use
