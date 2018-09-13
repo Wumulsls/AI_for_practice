@@ -1,0 +1,91 @@
+#Breadth-first search(bfs)
+    reason:expand the frontier between discovered and undiscovered vertices.
+    white:undiscovered, grey:some adjacent vertices are undiscovered, black: all the adjacent vertices are discovered
+    *the data structure:using fifo queue to store the grey vertices.
+    ***********#######**********
+    for each vertex u belong to G.V - {s}
+            u.color = white
+            u.d = infinite#means the distance to s
+            u.pi = nil#pi means its parent
+    s.color = Gray
+    s.d = 0
+    s.pi = nil
+    Q = blank space
+    enqueue(Q,s)
+    while Q != blank space
+        u = dequeue(Q)
+        for each v belong to G.Adj[u]
+            if v.color == white
+                v.color = gray
+                v.d = u.d + 1
+                v.pi = nil
+                enqueue(Q,v)
+        u.color = black#all the vertices are not white
+
+
+
+#Depth-first search(DFS)
+    reason:deep enough until trace back,multiple sources form several trees==>depth first forest.Every vertex has two timestamp.
+    Before u.d(the first timestamp) is white, gray is between u.d and u.f(the second timestamp),after the u.f is black
+    ********########********
+    DFS(G)
+    for each vertex u belong to G.V
+        u.color = white
+        u.pi = nil
+    time = 0
+    for each vertex u belong to G.V
+        if u.color == white
+            DFS-Visit(G,u)
+
+    DFS-Visit(G,u)
+        time = time + 1
+        u.d = time
+        u.color = gray
+        for each v belong to G.Adj[u]
+            if v.color == white
+               v.pi =u
+               DFS-Visit(G,v)
+        u.color = BLACK
+        time = time + 1
+        u.f = time
+
+
+#A* Algorithm
+Using a method to verify which one is the shortest way.
+f(n) = g(n) + h(n)
+g(n) is the distance we have got here,and h(n) is the guessing method we use
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
