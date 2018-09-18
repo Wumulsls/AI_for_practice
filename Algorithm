@@ -59,7 +59,7 @@ g(n) is the distance we have got here,and h(n) is the guessing method we use
 #双指针的问题
 即可以安排两个指针
 应用场景：1.安排于数组的前端和后端，用于从两端到中间的迭代场景
-         2.快慢指针用于不同的数组来定位f
+         2.快慢指针用于不同的数组来定位
 
 
 
