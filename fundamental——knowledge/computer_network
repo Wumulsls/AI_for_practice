@@ -1,0 +1,24 @@
+*****something about Socket******
+
+socket的抽象理解：
+        我们知道，普通定义的网络结构一共有5层：application,transport,network,link,physics.
+    在application和transport这两层之间：application层传送message给其他的host/server的时候需要有下一层的transport来做更实际的传输。
+    而如何去使用下一层的一些函数或者相关的protocol呢，这时候就需要一个比较方便的接口来提供给程序员来使用，所以就营运而生有了socket这个软件层。
+    我们只需要向他传递一些参数就可以通过它来有选择地实现我们想要的信息的获取和传输
+
+        根据四个维度来选择我们要的传输层protocol：
+        1.Reliable Data Transfer: 像电子邮件，远程访问，或者传输一些需要数据完整且准确的文件，我们就需要去确保数据传输的可依赖性。
+                                  在传输的过程中可能会发生的事情有丢包或者字节损坏错误等等。
+                                  当然也有一些application是loss-tolerant的
+        2.Throughput: 提供最低带宽的保证。r bits/sec,有一些applications是bandwidth-sensitive applications，像视频。
+                      elastic applications 没有特定的带宽需求。such as e-mail
+        3.Timing:实时游戏等需要实效性的application
+        4.Security: 能否加解密数据
+        两个transport protocol：TCP 和 UDP
+            TCP: connection-oriented service and a reliable data transfer service，
+                 在建立TCP的时候需要经过3次handshakings，即需要确立好连接的双方。
+                 可依赖性：congestion-control mechanism + SSL（ Secure Sockets Layer,a kind of enhancement of TCP ）
+            UDP: 直接发送信息，几乎无任何的保障。但是发送的速度比TCP快。
+
+
+
